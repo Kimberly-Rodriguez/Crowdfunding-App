@@ -16,11 +16,11 @@ router.get('/', async (req, res) => {
     const projects = dbProjectData.map((project) =>
       project.get({ plain: true })
     );
-    res.json({projects, loggedIn: req.session.loggedIn})
-    // res.render('homepage', {
-    //   projects,
-    //   loggedIn: req.session.loggedIn,
-    // });
+    //res.json({projects, loggedIn: req.session.loggedIn})
+    res.render('homepage', {
+      projects,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
